@@ -15,31 +15,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './core/token.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ClarityModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    AuthService,
-    StorageService,
-    RequesterService,
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		LoginComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule,
+		ReactiveFormsModule,
+		ClarityModule,
+		BrowserAnimationsModule
+	],
+	providers: [
+		AuthService,
+		StorageService,
+		RequesterService,
+		AuthGuard,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true
+		}
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

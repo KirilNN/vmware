@@ -43,12 +43,13 @@ export default class CrudController<T> {
             Logger.info(`GET - ${Utils.getUrl(request)}`);
             const { patchId, nameId } = request.params;
             const entities: T[] = await this.crudResolver.getPatch(patchId, nameId);
-            
+
             return h
                 .response({
                     statusCode: 200,
-                    data: entities
-                }).type("application/text");
+                    data: entities,
+                })
+                .type('application/text');
         } catch (error) {
             return Boom.badImplementation(error);
         }
@@ -72,9 +73,10 @@ export default class CrudController<T> {
     public auth = async (request: Hapi.Request, h: Hapi.ResponseToolkit): Promise<any> => {
         try {
             Logger.info(`GET - ${Utils.getUrl(request)}`);
-            
+
             const { email, password } = JSON.parse(request.payload as string);
-            const entities: string = await this.crudResolver.getToken({email, password });
+
+            const entities: string = await this.crudResolver.getToken({ email, password });
 
             return h.response({
                 statusCode: 200,

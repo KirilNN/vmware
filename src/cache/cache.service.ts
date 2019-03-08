@@ -8,22 +8,21 @@ class CacheService {
     }
 
     public async get(key: string, storeFunction: any) {
-        const get = Bluebird.promisify(this.cache.get)
+        const get = Bluebird.promisify(this.cache.get);
         const value = await get(key);
 
         if (value) {
             return Bluebird.resolve(value);
         }
 
-        return storeFunction()
-            .then((result: NodeCache.Callback<NodeCache.Data>) => {
-                this.cache.set(key, result);
-                return result;
+        return storeFunction().then((result: NodeCache.Callback<NodeCache.Data>) => {
+            this.cache.set(key, result);
+            return result;
         });
     }
 
     public async del(keys: string | string[]) {
-        const del = Bluebird.promisify(this.cache.del)
+        const del = Bluebird.promisify(this.cache.del);
         return del(keys);
     }
 }

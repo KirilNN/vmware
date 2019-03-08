@@ -17,7 +17,7 @@ export const getGeneralInfo = (nameId: string) => `{
           bio
         }
       }
-}`
+}`;
 
 export const getCommits = (nameId: string) => `
 {
@@ -48,4 +48,4 @@ export const getCommits = (nameId: string) => `
         }
     }
 }
-`
+`;

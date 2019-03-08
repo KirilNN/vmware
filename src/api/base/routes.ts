@@ -19,8 +19,8 @@ export default class UserRoutes implements IRoute {
                         tags: ['api', 'auth'],
                         auth: false,
                         cors: {
-                            origin: ['*']
-                        }
+                            origin: ['*'],
+                        },
                     },
                 },
                 {
@@ -38,7 +38,8 @@ export default class UserRoutes implements IRoute {
                     path: '/api/generalInfo/{nameId}',
                     options: {
                         handler: controller.getGeneralInfo,
-                        description: 'Method that looks up a repository owner (ie. either a User or an Organization) by login.',
+                        description:
+                            'Method that looks up a repository owner (ie. either a User or an Organization) by login.',
                         tags: ['api', 'info'],
                         auth: 'token',
                     },
@@ -62,7 +63,7 @@ export default class UserRoutes implements IRoute {
                         tags: ['api', 'commits'],
                         auth: 'token',
                     },
-                }
+                },
             ]);
 
             Logger.info('UserRoutes - Finish adding user routes.');

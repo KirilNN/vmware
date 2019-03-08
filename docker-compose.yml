@@ -1,18 +1,21 @@
 version: '3'
 services:
-  web:
-    container_name: web-api
+  api:
+    container_name: api
     build:
       context: .
       dockerfile: Dockerfile
     command: npm run nodemon:start
     volumes:
       - .:/usr/app/
-    environment:
-      - PORT=8080
-      - HOST=0.0.0.0
-      - PROJECT_DIR=/usr/app/
-      - NODE_ENV=development
-      - LOG_LEVEL=debug
     ports:
       - "8080:8080"
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ui/ui.Dockerfile
+    volumes:
+      - .:/usr/app/
+    ports:
+      - "4200:4200"

@@ -64,8 +64,8 @@ export default class Plugins {
                 async validate(request: Hapi.Request, token: string) {
                     try {
                         Logger.info(`GET - ${Utils.getUrl(request)}`);
-                        
-                        const credentials = await auth.verify(token)
+
+                        const credentials = await auth.verify(token);
 
                         return { isValid: true, credentials };
                     } catch (error) {

@@ -1,6 +1,6 @@
 import Repository from './base-repository';
 import CacheService from '../cache/cache.service';
-import AuthService, { Payload } from '../auth/auth.service';
+import AuthService, { IPayload } from '../auth/auth.service';
 
 export default class CrudResolver<T> {
     private cache: CacheService;
@@ -20,14 +20,16 @@ export default class CrudResolver<T> {
     }
 
     public async getPatch(patchId: string, nameId: string): Promise<T[]> {
-        return this.cache.get(`info_${nameId}_${patchId}`, this.repository.getPatch(nameId, patchId)).then((result: any) => result);
+        return this.cache
+            .get(`info_${nameId}_${patchId}`, this.repository.getPatch(nameId, patchId))
+            .then((result: any) => result);
     }
 
     public async getCommits(nameId: string): Promise<T[]> {
         return this.cache.get(`commits_${nameId}`, this.repository.getCommits(nameId)).then((result: any) => result);
     }
 
-    public async getToken(payload: Payload): Promise<string> {
+    public async getToken(payload: IPayload): Promise<string> {
         return await this.auth.sign(payload);
     }
 }

@@ -1,14 +1,19 @@
 import { GraphQLClient } from 'graphql-request';
 import * as queries from './queries';
 import * as rp from 'request-promise';
-import { Promise as Bluebird } from 'bluebird';
+import * as path from 'path';
+import { readFileSync } from 'fs';
 export default class Repository<T> {
     private client: GraphQLClient;
 
     constructor() {
+        const key = readFileSync(path.resolve(__dirname, '../auth/github.key'), 'utf-8');
+        const buff = Buffer.from(key, 'base64');
+        const token = buff.toString('ascii');
+
         this.client = new GraphQLClient('https://api.github.com/graphql', {
             headers: {
-                Authorization: 'Bearer 9ab304264cf6f75241ec353e2b568a71649ecc84',
+                Authorization: `Bearer ${token}`,
             },
         });
     }
@@ -32,15 +37,15 @@ export default class Repository<T> {
     };
 
     public getPatch = (nameId: string, patchId: string) => (): Promise<any> => {
-        // https://github.community/t5/GitHub-API-Development-and/What-is-the-corresponding-object-in-GraphQL-API-v4-for-patch/td-p/14502 currently the Github GraphQL api 
-        // does not expose such operation so using the v3 version for this endpoint
+        // https://bit.ly/2VMJvbW
+        // currently the Github GraphQL api does not expose such operation so using the v3 version for this endpoint
 
         const url = `https://github.com/vmware/${nameId}/commit/${patchId}.patch`;
 
         return new Promise((resolve, reject) => {
             rp(url)
                 .then(body => resolve(body))
-                .catch(err => reject(err))
+                .catch(err => reject(err));
         });
     };
 
@@ -48,7 +53,7 @@ export default class Repository<T> {
         return new Promise((resolve, reject) => {
             this.client
                 .request(queries.getCommits(nameId))
-                .then((data: any) => resolve(data))
+                .then((data: any) => resolve(data.repository.ref.target.history.edges))
                 .catch(err => reject(err));
         });
     };

@@ -1,10 +1,7 @@
-# TypeScript + Hapi = <3
+## How to run it
+Just execute `docker-compose up` and the API will run on `:8080` port, and the UI on `:4200`
 
-This is a super simple starter kit to develop APIs with HapiJS + TypeScript
-
-## What currently supports? 
-
-This starter kit comes with the following features: 
+## What is currently supports? 
 
 - **Swagger-UI** 
 - **Status Monitor**
@@ -16,35 +13,28 @@ This starter kit comes with the following features:
 - **Dockerfile + docker-compose for development**
 - **Basic Test Suite with Tape**
 - **Coverage Report**
-- **Supports Heroku Deployment**
 
 ## Requirements
 
-* NodeJS 10.x
-* Yarn 1.x
+* NodeJS 9 +
+* Docker
 
 ## How to use it? 
 
-1. Download this project as a zip.
-2. Run `yarn install`
-3. Run `npm run nodemon:start`
 4. Visit [http://localhost:8080/documentation](http://localhost:8080/documentation) to view swagger docs.
-5. Visit [http://localhost:8080/api/users](http://localhost:8080/api/users) to test the REST API.
+5. Visit [http://localhost:8080/api/](http://localhost:8080/api/) to test the REST API.
 6. Visit [http://localhost:8080/status](http://localhost:8080/status) to view the status monitor.
-
-OUTDATED: Now there's a CLI that currently support creating a new project from this repo: [create-typescript-api](https://github.com/BlackBoxVision/create-typescript-api)
 
 
 ## TODO
 
 This is not finished, there's still a lot of things to improve. Here you got some:
 
-- [X] Simple test suite - added by the help of [@jcloutz](https://github.com/jcloutz)
-- [X] Add support for test coverage - added by the help of [@jcloutz](https://github.com/jcloutz)
-- [ ] Add GraphQL support
-- [ ] Add support for Auth with JWT or Sessions
-- [ ] Add support for TypeORM/Mongoose
+- [ ] Add better test coverage for both UI and API
+- [ ] Remove keys in source control
+- [ ] Add production Docker configuration
 - [ ] Add support for Jenkins pipeline
+- [ ] Fix bugs - there are always bugs that need to be fixed
 
 ## Documentation
 
@@ -63,14 +53,5 @@ This is not finished, there's still a lot of things to improve. Here you got som
 * `postinstall`: Runs build-ts script. This is used by eg. Heroku automatically.
 * `test`: Runs tests using nyc, and creates coverage report.
 
-## Issues
-
-If you found a bug, or you have an answer, or whatever. Please, raise an [issue](https://github.com/BlackBoxVision/typescript-hapi-starter/issues/new).
-
-## Contributing
-
-Of course, if you see something that you want to upgrade from this library, or a bug that needs to be solved, PRs are welcome!
-
 ## License
-Distributed under the **MIT license**. See [LICENSE](https://github.com/BlackBoxVision/typescript-hapi-starter/blob/master/LICENSE) for more information.
-# vmware
+Distributed under the **MIT license**. See [LICENSE](https://github.com/BlackBoxVision/typescript-hapi-starter/blob/master/LICENSE) for more information
