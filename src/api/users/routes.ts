@@ -11,13 +11,16 @@ export default class UserRoutes implements IRoute {
 
             server.route([
                 {
-                    method: 'GET',
-                    path: '/auth/{email}/{password}',
+                    method: 'POST',
+                    path: '/auth',
                     options: {
                         handler: controller.auth,
                         description: 'Method that authenticates user and returns a token',
                         tags: ['api', 'auth'],
-                        auth: false
+                        auth: false,
+                        cors: {
+                            origin: ['*']
+                        }
                     },
                 },
                 {

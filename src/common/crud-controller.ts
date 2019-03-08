@@ -73,7 +73,7 @@ export default class CrudController<T> {
         try {
             Logger.info(`GET - ${Utils.getUrl(request)}`);
             
-            const { email, password } = request.params;
+            const { email, password } = JSON.parse(request.payload as string);
             const entities: string = await this.crudResolver.getToken({email, password });
 
             return h.response({

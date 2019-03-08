@@ -16,6 +16,9 @@ export default class Server {
 
             Server._instance = new Hapi.Server({
                 port: process.env.PORT,
+                routes: {
+                    cors: true
+                }
             });
 
             await Plugin.registerAll(Server._instance);
