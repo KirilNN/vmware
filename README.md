@@ -1,5 +1,8 @@
 ## How to run it
-Just execute `docker-compose up` and the API will run on `:8080` port, and the UI on `:4200`
+ - execute `docker-compose up` and 
+ - the API will run on `:8080` port, 
+ - and the UI on `:4200`
+ - user `test@vmare.com` and password `123123` to login
 
 ## What is currently supports? 
 
@@ -11,7 +14,6 @@ Just execute `docker-compose up` and the API will run on `:8080` port, and the U
 - **Work with Yarn or NPM 6 as dependency resolvers**
 - **Code formatting with Prettier as hook for Pre-commit**
 - **Dockerfile + docker-compose for development**
-- **Basic Test Suite with Tape**
 - **Coverage Report**
 
 ## Requirements
@@ -21,9 +23,8 @@ Just execute `docker-compose up` and the API will run on `:8080` port, and the U
 
 ## How to use it? 
 
-4. Visit [http://localhost:8080/documentation](http://localhost:8080/documentation) to view swagger docs.
-5. Visit [http://localhost:8080/api/](http://localhost:8080/api/) to test the REST API.
-6. Visit [http://localhost:8080/status](http://localhost:8080/status) to view the status monitor.
+1. Visit [http://localhost:8080/documentation](http://localhost:8080/documentation) to view swagger docs.
+2. Visit [http://localhost:8080/status](http://localhost:8080/status) to view the status monitor.
 
 
 ## TODO
