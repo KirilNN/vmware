@@ -15,7 +15,7 @@ export default class Server {
             });
 
             Server._instance = new Hapi.Server({
-                port: process.env.PORT,
+                port: 8080,
                 routes: {
                     cors: true,
                 },
@@ -26,8 +26,8 @@ export default class Server {
             await Server._instance.start();
 
             Logger.info('Server - Up and running!');
-            Logger.info(`Visit: http://${process.env.HOST}:${process.env.PORT}/api/ for REST API`);
-            Logger.info(`Visit: http://${process.env.HOST}:${process.env.PORT}/documentation for Swagger docs`);
+            Logger.info(`Visit: http://loclahost:8080/api/ for REST API`);
+            Logger.info(`Visit: http://localhost:8080/documentation for Swagger docs`);
 
             return Server._instance;
         } catch (error) {

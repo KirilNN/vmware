@@ -4,8 +4,8 @@ services:
     container_name: api
     build:
       context: .
-      dockerfile: Dockerfile
-    command: npm run nodemon:start
+      dockerfile: ./server/Dockerfile
+    command: nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts
     volumes:
       - .:/usr/app/
     ports:
