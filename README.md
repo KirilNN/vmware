@@ -1,8 +1,8 @@
 ## How to run it
- - execute `docker-compose up` and 
- - the API will run on `:8080` port, 
- - and the UI on `:4200`
- - user `test@vmare.com` and password `123123` to login
+ - execute `docker-compose up` from the root folder
+ - the API will run on the `8080` port, 
+ - and the UI on the `4200`
+ - user username `test@vmare.com` and password `123123` to login
 
 ## What is currently supports? 
 
